@@ -1,0 +1,37 @@
+package ex02;
+
+import java.util.Scanner;
+/*
+ * Java 02, Exercise 02
+ * 
+ * A farm sells eggs at the rate of $3.25 per dozen or 45 cents per individual egg, 
+ * not part of a dozen.  
+ * Write a program that prompts the user for the number of eggs and displays the 
+ * amount owed  with a full explanation.  
+ * For example: 
+ * “You ordered 27 eggs. That’s 2 dozen at $3.25 per dozen 
+ * and 3 loose eggs at 45 cents each, for a total of $7.85.”.
+ * 
+ * J. M. Hinckley
+ * 2024
+ */
+
+public class P02 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter the number of eggs: ");
+		int numEggs = sc.nextInt();
+		sc.nextLine();
+		
+		int numDozen = numEggs / 12;
+		int numExtras = numEggs % 12;
+		
+		double costDollars = 3.25 * numDozen + 0.45 * numExtras;
+		
+		System.out.println("You ordered "+numEggs+" eggs.");
+		System.out.println("That’s "+numDozen+" dozen at $3.25 per dozen");
+		System.out.println("and "+numExtras+" loose eggs at 45 cents each,");
+		System.out.println("for a total of $"+String.format("%.2f", costDollars)+".");
+	}
+}

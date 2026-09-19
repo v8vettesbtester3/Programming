@@ -29,7 +29,7 @@ v0 = 1
 g = 9.8
 
 # time increment per iteration
-dt = 0.1
+dt = 0.01
 
 # loop over value of speed
 while True:
@@ -54,13 +54,13 @@ while True:
             break  # stop looping over time
 
     # check distance
-    # did it overshoot, more than 0.5 m?
-    if x > d + 0.5:
+    # did it overshoot, more than 0.1 m?
+    if x > d + 0.1:
         # too far.  So decrease v0.
         v0 = v0 * 0.9999
 
-    # did it undershoot, more than 0.5 m?
-    elif x < d - 0.5:
+    # did it undershoot, more than 0.1 m?
+    elif x < d - 0.1:
         # not far enough.  So increase v0.
         v0 = v0 * 1.0001
 

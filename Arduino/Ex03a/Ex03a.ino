@@ -17,4 +17,5 @@ void loop()
   delay(2000); // Wait for 2000 milliseconds
   digitalWrite(LED, LOW);	// Turn off LED
   }
+  delay(50);
 }

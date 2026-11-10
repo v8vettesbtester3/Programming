@@ -65,6 +65,12 @@ int main()
 
     // Close database connection
     sqlite3_close(db);
+
+    // Wait before closing the shell.
+    char ch;
+    cout << "Press <enter> to end:";
+    cin.get(ch);
+
     return 0;
 
 }

@@ -69,6 +69,9 @@
 
 
             } // Connection automatically closes here
+
+            Console.Write("Press <enter> to end:");
+            Console.Read();
         }
     }
 }

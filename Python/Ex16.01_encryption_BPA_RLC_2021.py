@@ -8,7 +8,7 @@ def encrypt(text):
     s=10
     # Reverses the string
     text = text[::-1]
-    # transverse the plain text
+    # traverse the plain text
     for i in range(len(text)):
         char = text[i]
         # Encrypt uppercase characters in plain text
@@ -27,13 +27,13 @@ string. The function then will return the decrypted string.
 def decrypt(text):
     result = ""
     s=10
-    # transverse the plain text
+    # traverse the encrypted text
     for i in range(len(text)):
         char = text[i]
-        # Encrypt uppercase characters in plain text
+        # Decrypt uppercase characters in encrypted text
         if (char.isupper()):
             result += chr((ord(char) - s + 65) % 26 + 65)
-        # Encrypt lowercase characters in plain text
+        # Decrypt lowercase characters in encrypted text
         else:
             result += chr((ord(char) - (s + 12) + 97) % 26 + 97)
     #Reverses the string

@@ -18,10 +18,10 @@ public class StockDriver {
 				System.out.println("How many stocks do you want to create?");
 				quantity = sc.nextInt();
 				sc.nextLine();
-				if (quantity < 0 || quantity > 10) {
+				if (quantity <= 0 || quantity > 10) {
 					System.out.println("\nYou entered a value too low or too high.  Try again please.");
 				}
-			} while (quantity < 0 || quantity > 10);
+			} while (quantity <= 0 || quantity > 10);
 			
 			System.out.println("\nYou entered: "+quantity);
 			System.out.println("\nYou will now enter in the company symbol, name and their share quantity."

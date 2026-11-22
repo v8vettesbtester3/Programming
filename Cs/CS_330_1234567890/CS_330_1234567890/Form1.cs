@@ -34,7 +34,7 @@ namespace CS_330_1234567890
                 // there is an operation pending, this must be the second number
                 // get the substring of the output box text starting after the operator
                 int pos = outputBox.Text.IndexOf(op);
-                num2 = Double.Parse(outputBox.Text.Substring(pos+1));
+                num2 = Double.Parse(outputBox.Text.Substring(pos + 1));
             }
         }
 
@@ -86,6 +86,65 @@ namespace CS_330_1234567890
         {
             op = '\0';
             outputBox.Text = "0";
+        }
+
+        private void btnCalculateInterest(object sender, EventArgs e)
+        {
+            int compoundType = 0;
+            double principle = 0;
+            double annualRate = 0;
+            int numberYears = 0;
+            bool principleOK = false, rateOK = false, yearsOK = false;
+
+            // Input from text boxes, check validity
+            // Principle
+            if (double.TryParse(txtDollars.Text, out principle))
+            {
+                principleOK = true;
+            }
+            else
+            {
+                principleOK = false;
+                MessageBox.Show("Incorrect data entered for inital dollar amount.", "Incorrect Data Value");
+            }
+
+            // Annual Rate
+            if (double.TryParse(txtInterest.Text, out annualRate))
+            {
+                annualRate /= 100;  // percent input, convert to fraction.
+                rateOK = true;
+            }
+            else
+            {
+                rateOK = false;
+                MessageBox.Show("Incorrect data entered for interest.", "Incorrect Data Value");
+            }
+
+            // Number of years
+            if (int.TryParse(txtYears.Text, out numberYears))
+            {
+                yearsOK = true;
+            }
+            else
+            {
+                yearsOK = false;
+                MessageBox.Show("Incorrect data entered for years.", "Incorrect Data Value");
+            }
+
+            // Do calculation of compound interest if all OK
+            if (principleOK && rateOK && yearsOK)
+            {
+                // number of compoundings
+                if (rdoMonthly.Checked) compoundType = 12;
+                else if (rdoQtr.Checked) compoundType = 4;
+                else if (rdoSemi.Checked) compoundType = 2;
+                else compoundType = 1;
+
+                double interest = annualRate / compoundType;        // interest per compounding cycle
+                int numCompoundings = compoundType * numberYears;   // number of compounding cycles
+                double futureValue = principle * Math.Pow(1 + interest, numCompoundings);
+                cmpdOutput.Text = futureValue.ToString("C");
+            }
         }
     }
 }

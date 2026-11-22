@@ -337,6 +337,7 @@
             btnCalculate.TabIndex = 8;
             btnCalculate.Text = "Calculate";
             btnCalculate.UseVisualStyleBackColor = true;
+            btnCalculate.Click += btnCalculateInterest;
             // 
             // grpFrequency
             // 
